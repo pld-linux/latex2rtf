@@ -21,7 +21,7 @@ LaTeX to RTF converter.
 
 %description -l pl
 Program do przetwarzania dokumentów z formatu TeX (LaTeX) na format
-czytany przez programy firmy Microsoft.
+Rich Text Format, czytany przez programy firmy Microsoft.
 
 %prep
 %setup -q
