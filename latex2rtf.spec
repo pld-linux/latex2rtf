@@ -1,3 +1,5 @@
+# TODO:
+# - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011367.html
 Summary:	LaTeX to RTF converter program
 Summary(pl):	Konwerter z formatu LaTeXa do RTF
 Name:		latex2rtf
@@ -21,7 +23,10 @@ Rich Text Format, czytany przez programy firmy Microsoft.
 %setup -q
 
 %build
-%{__make} CC="%{__cc}" CFLAGS="%{rpmcflags} -DUNIX" PREFIX=%{_prefix}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -DUNIX" \
+	PREFIX=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -30,7 +35,9 @@ install -d $RPM_BUILD_ROOT%{_infodir}
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT%{_prefix} \
 	MAN_INSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 \
-	INST_DIR="install -d" INST_BIN=install INST_DAT=install
+	INST_DIR="install -d" \
+	INST_BIN=install \
+	INST_DAT=install
 
 install doc/latex2rtf.info $RPM_BUILD_ROOT%{_infodir}
 
