@@ -3,8 +3,9 @@ Summary(pl):	Konwerter z formatu LaTeXa do RTFa.
 Name:		latex2rtf
 Version:	1.8aa
 Release:	1
-Copyright:	GPL
-Group:		Tools
+License:	GPL
+Group:		Utilities/Text
+Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia
 Source0:	%name-%version.tar.gz
 Source1:	polish.cfg
@@ -19,7 +20,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 LaTeX to RTF converter.
 
 %description -l pl
-Program do przetwa¿ania  dokumentów z formatu TeX (LaTeX) na format
+Program do przetwa¿ania dokumentów z formatu TeX (LaTeX) na format
 czytany przez programy firmy Microsoft.
 
 %prep
@@ -36,10 +37,10 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}}
 make prefix=$RPM_BUILD_ROOT%{_prefix} MANINSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 install
 make prefix=$RPM_BUILD_ROOT%{_prefix} MANINSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 simple_cfg_install
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_libdir}/%{name}/
+install %{SOURCE1} $RPM_BUILD_ROOT%{_libdir}/%{name}
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
-gzip -9nf doc/TODO doc/l2r.txt README ChangeLog
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
+	doc/TODO doc/l2r.txt README ChangeLog
 
 strip $RPM_BUILD_ROOT%{_bindir}/* || die
 
