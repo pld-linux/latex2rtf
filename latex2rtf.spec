@@ -5,7 +5,7 @@ Version:	1.9.13
 Release:	1
 License:	GPL
 Group:		Applications/Text
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/latex2rtf/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/latex2rtf/%{name}-%{version}.tar.gz
 URL:		http://latex2rtf.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
