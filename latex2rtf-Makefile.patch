@@ -1,0 +1,24 @@
+--- Makefile.org	Thu Nov 12 19:22:58 1998
++++ Makefile	Tue Mar 21 11:32:57 2000
+@@ -74,7 +74,7 @@
+ # Erick Branderhorst. Parts are written by Ian Jackson and Ian Murdock.
+ # TODO: add target "changes". 
+ CC=gcc    # C-Compiler 
+-CFLAGS=-g $(XCFLAGS) # Use -O here if you want it optimized
++CFLAGS=-g $(XCFLAGS) $(RPM_OPT_FLAGS) # Use -O here if you want it optimized
+ COPY=cp
+ INSTALL=install
+ DIR_MODE=755
+@@ -87,9 +87,9 @@
+ BIN_GROUP=root
+ DAT_GROUP=root
+ # If you have the program install, use the following definitions
+-INST_DIR=$(INSTALL) -g $(DIR_GROUP) -o $(DIR_USER) -d -m $(BIN_MODE)
+-INST_BIN=$(INSTALL) -g $(BIN_GROUP) -o $(BIN_USER) -m $(DIR_MODE)
+-INST_DAT=$(INSTALL) -g $(DAT_GROUP) -o $(DAT_USER) -m $(DAT_MODE)
++INST_DIR=$(INSTALL) -d -m $(BIN_MODE)
++INST_BIN=$(INSTALL) -m $(DIR_MODE)
++INST_DAT=$(INSTALL) -m $(DAT_MODE)
+ CHOWN_DIR=true
+ CHOWN_BIN=true
+ CHOWN_DAT=true
