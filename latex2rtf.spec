@@ -8,20 +8,19 @@ Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
-Source0:	%name-%version.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/latex2rtf/%{name}-%{version}.tar.gz
 Source1:	polish.cfg
-Patch0:		%name-Makefile.patch
+Patch0:		%{name}-Makefile.patch
+URL:		http://latex2rtf.sourceforge.net/
 #BuildRequires:	
 #Requires:	
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define	_prefix	/usr
 
 %description
 LaTeX to RTF converter.
 
 %description -l pl
-Program do przetwa¿ania dokumentów z formatu TeX (LaTeX) na format
+Program do przetwarzania dokumentów z formatu TeX (LaTeX) na format
 czytany przez programy firmy Microsoft.
 
 %prep
