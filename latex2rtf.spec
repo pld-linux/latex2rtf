@@ -1,12 +1,13 @@
-Summary:	LaTeX to RTF converter program.
-Summary(pl):	Konwerter z formatu LaTeXa do RTFa.
+Summary:	LaTeX to RTF converter program
+Summary(pl):	Konwerter z formatu LaTeXa do RTF
 Name:		latex2rtf
 Version:	1.8aa
 Release:	1
 License:	GPL
-Group:		Utilities/Text
+Group:		Applications/Text
+Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
-Group(pl):	Narzêdzia
+Group(pl):	Aplikacje/Tekst
 Source0:	%name-%version.tar.gz
 Source1:	polish.cfg
 Patch0:		%name-Makefile.patch
@@ -25,11 +26,10 @@ czytany przez programy firmy Microsoft.
 
 %prep
 %setup -q
-
 %patch -p0
 
 %build
-%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS" prefix=%{_prefix}
+%{__make} RPM_OPT_FLAGS="%{rpmcflags}" prefix=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -39,10 +39,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_libdir}/%{name}
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	doc/TODO doc/l2r.txt README ChangeLog
-
-strip $RPM_BUILD_ROOT%{_bindir}/* || die
+gzip -9nf doc/TODO doc/l2r.txt README ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,4 +49,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/TODO.gz doc/l2r.txt.gz doc/l2r.html doc/l2r.pdf README.gz ChangeLog.gz  
 %attr(755,root,root) %{_bindir}/latex2rtf
 %attr(644,root,root) %{_libdir}/%{name}/*
-%attr(644,root,root) %{_mandir}/man1/*.gz
+%attr(644,root,root) %{_mandir}/man1/*
