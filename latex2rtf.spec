@@ -33,8 +33,6 @@ install -d $RPM_BUILD_ROOT%{_infodir}
 
 install doc/latex2rtf.info $RPM_BUILD_ROOT%{_infodir}
 
-gzip -9nf doc/credits README ChangeLog Copyright
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -46,7 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz
+%doc doc/credits README ChangeLog Copyright
 %attr(755,root,root) %{_bindir}/latex2rtf
 %{_datadir}/%{name}
 %{_mandir}/man1/*
