@@ -11,7 +11,7 @@ Source1:	polish.cfg
 Patch0:		%name-Makefile.patch
 #BuildRequires:	
 #Requires:	
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_prefix	/usr
 
