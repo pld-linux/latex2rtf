@@ -29,13 +29,13 @@ czytany przez programy firmy Microsoft.
 %patch -p0
 
 %build
-make RPM_OPT_FLAGS="$RPM_OPT_FLAGS" prefix=%{_prefix}
+%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS" prefix=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}}
-make prefix=$RPM_BUILD_ROOT%{_prefix} MANINSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 install
-make prefix=$RPM_BUILD_ROOT%{_prefix} MANINSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 simple_cfg_install
+%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} MANINSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 install
+%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} MANINSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 simple_cfg_install
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_libdir}/%{name}
 
