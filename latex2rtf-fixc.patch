@@ -1,0 +1,56 @@
+diff -Nur latex2rtf-1.9.12.orig/main.c latex2rtf-1.9.12/main.c
+--- latex2rtf-1.9.12.orig/main.c	Thu Nov 22 16:16:00 2001
++++ latex2rtf-1.9.12/main.c	Wed Jan  2 13:43:42 2002
+@@ -98,6 +98,7 @@
+ 	bool            errflag = FALSE;
+ 
+ 	fRtf = stdout;
++	init_g_parser_file_stdin();
+ 
+ 	progname = argv[0];
+ 	optind = 1;
+diff -Nur latex2rtf-1.9.12.orig/main.h latex2rtf-1.9.12/main.h
+--- latex2rtf-1.9.12.orig/main.h	Fri Nov 30 06:06:54 2001
++++ latex2rtf-1.9.12/main.h	Wed Jan  2 13:39:19 2002
+@@ -20,7 +20,7 @@
+ #endif 
+ #endif
+ 
+-#ifdef MACINTOSH || __MWERKS__
++#if defined(MACINTOSH) || defined(__MWERKS__)
+ #define HAS_NO_GETOPT
+ #define HAS_NO_STRDUP
+ #define ENVSEP '^'
+diff -Nur latex2rtf-1.9.12.orig/parser.c latex2rtf-1.9.12/parser.c
+--- latex2rtf-1.9.12.orig/parser.c	Fri Nov 23 22:43:48 2001
++++ latex2rtf-1.9.12/parser.c	Wed Jan  2 13:43:02 2002
+@@ -30,7 +30,7 @@
+ 
+ static int              g_parser_depth = -1;
+ static char            *g_parser_string = "stdin";
+-static FILE            *g_parser_file   = stdin;
++static FILE            *g_parser_file   = NULL;
+ static int 				g_parser_line   = 1;
+ static int 				g_parser_include_level=0;
+ 
+@@ -45,6 +45,11 @@
+ 
+ static void     parseBracket();
+ 
++void init_g_parser_file_stdin(void)
++{
++  g_parser_file=stdin;
++}
++
+ static void
+ SetScanAhead(int flag)
+ /***************************************************************************
+diff -Nur latex2rtf-1.9.12.orig/parser.h latex2rtf-1.9.12/parser.h
+--- latex2rtf-1.9.12.orig/parser.h	Wed Nov 14 16:18:53 2001
++++ latex2rtf-1.9.12/parser.h	Wed Jan  2 13:43:20 2002
+@@ -34,3 +34,5 @@
+ void 			fseekTex(long pos);
+ char           *getDelimitedText(char left, char right, bool raw);
+ void			getSection(char **body, char **header, char **label);
++
++void	init_g_parser_file_stdin(void);
