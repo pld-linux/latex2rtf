@@ -5,9 +5,6 @@ Version:	1.9.12
 Release:	1
 License:	GPL
 Group:		Applications/Text
-Group(de):	Applikationen/Text
-Group(fr):	Utilitaires/Texte
-Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/latex2rtf/%{name}-%{version}.tar.gz
 Source1:	polish.cfg
 Patch0:		%{name}-fixc.patch
