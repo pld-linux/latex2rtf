@@ -16,8 +16,11 @@ Buildroot:	/tmp/%{name}-%{version}-root
 %define	_prefix	/usr
 
 %description
+LaTeX to RTF converter.
 
 %description -l pl
+Program do przetwa¿ania  dokumentów z formatu TeX (LaTeX) na format
+czytany przez programy firmy Microsoft.
 
 %prep
 %setup -q
