@@ -1,12 +1,12 @@
 Summary:	LaTeX to RTF converter program
 Summary(pl):	Konwerter z formatu LaTeXa do RTF
 Name:		latex2rtf
-Version:	1.9.13
+Version:	1.9.14
 Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/latex2rtf/%{name}-%{version}.tar.gz
-# Source0-md5:	dedff9b8b17e222384b26c4bb94996d0
+# Source0-md5:	f590067942f15eb9b829afae6cab8a68
 URL:		http://latex2rtf.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
