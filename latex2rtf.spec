@@ -1,7 +1,7 @@
 # TODO:
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011367.html
 Summary:	LaTeX to RTF converter program
-Summary(pl):	Konwerter z formatu LaTeXa do RTF
+Summary(pl.UTF-8):   Konwerter z formatu LaTeXa do RTF
 Name:		latex2rtf
 Version:	1.9.16a
 Release:	1
@@ -15,8 +15,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 LaTeX to RTF converter.
 
-%description -l pl
-Program do przetwarzania dokumentów z formatu TeX (LaTeX) na format
+%description -l pl.UTF-8
+Program do przetwarzania dokumentÃ³w z formatu TeX (LaTeX) na format
 Rich Text Format, czytany przez programy firmy Microsoft.
 
 %prep
