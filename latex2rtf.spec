@@ -1,7 +1,7 @@
 # TODO:
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011367.html
 Summary:	LaTeX to RTF converter program
-Summary(pl.UTF-8):   Konwerter z formatu LaTeXa do RTF
+Summary(pl.UTF-8):	Konwerter z formatu LaTeXa do RTF
 Name:		latex2rtf
 Version:	1.9.16a
 Release:	1
