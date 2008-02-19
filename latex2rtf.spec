@@ -42,16 +42,18 @@ install doc/latex2rtf.info $RPM_BUILD_ROOT%{_infodir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
 %doc doc/credits README ChangeLog Copyright
-%attr(755,root,root) %{_bindir}/latex2*
+%attr(755,root,root) %{_bindir}/latex2png
+%attr(755,root,root) %{_bindir}/latex2rtf
 %{_datadir}/%{name}
-%{_mandir}/man1/*
-%{_infodir}/*
+%{_mandir}/man1/latex2png.1*
+%{_mandir}/man1/latex2rtf.1*
+%{_infodir}/latex2rtf.info*
