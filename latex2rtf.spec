@@ -1,12 +1,12 @@
 Summary:	LaTeX to RTF converter program
 Summary(pl.UTF-8):	Konwerter z formatu LaTeXa do RTF
 Name:		latex2rtf
-Version:	2.1.0
+Version:	2.2.1c
 Release:	1
 License:	GPL v2+
 Group:		Applications/Text
 Source0:	http://downloads.sourceforge.net/latex2rtf/%{name}-%{version}.tar.gz
-# Source0-md5:	e89b78f9cfe6d83c79e657a9390e8bc9
+# Source0-md5:	a660ae266969196a96f31b1f1f5d12e5
 URL:		http://latex2rtf.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -18,12 +18,13 @@ Program do przetwarzania dokumentów z formatu TeX (LaTeX) na format
 Rich Text Format, czytany przez programy firmy Microsoft.
 
 %prep
-%setup -q
+%setup -q -n %{name}-2.2.1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} -DUNIX" \
+	DESTDIR=%{_prefix} \
 	PREFIX=%{_prefix}
 
 %install
@@ -31,7 +32,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_infodir}
 
 %{__make} install \
-	PREFIX=$RPM_BUILD_ROOT%{_prefix} \
+	DESTDIR=$RPM_BUILD_ROOT%{_prefix} \
 	MAN_INSTALL=$RPM_BUILD_ROOT%{_mandir}/man1 \
 	INST_DIR="install -d" \
 	INST_BIN=install \
